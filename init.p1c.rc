@@ -13,5 +13,9 @@ on boot
     setprop ro.product.device p1c
 
 on fs
+# setup LVM volumes
+    exec /lvm/sbin/lvm vgscan --mknodes --ignorelockingfailure
+    exec /lvm/sbin/lvm vgchange -aly --ignorelockingfailure
+
     mount_all /fstab.p1c
 
