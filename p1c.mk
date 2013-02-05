@@ -46,35 +46,9 @@ PRODUCT_COPY_FILES := \
     device/samsung/p1c/init.p1c.rc:root/init.p1c.rc \
     device/samsung/p1c/ueventd.p1c.rc:root/ueventd.p1c.rc
 
-# These are the hardware-specific features
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml
-
 # vold
 PRODUCT_COPY_FILES += \
     device/samsung/p1c/prebuilt/etc/vold.fstab:system/etc/vold.fstab
-
-# RIL
-PRODUCT_COPY_FILES += \
-    device/samsung/p1c/prebuilt/etc/ppp/ip-up:system/etc/ppp/ip-up
-
-# Verizon cdma stuff
-PRODUCT_PROPERTY_OVERRIDES := \
-       ro.telephony.default_network=4 \
-       ro.ril.def.agps.mode=2 \
-       ro.ril.samsung_cdma=true \
-       ro.cdma.home.operator.numeric=310004 \
-       ro.cdma.home.operator.alpha=VzW \
-       ro.cdma.homesystem=64,65,76,77,78,79,80,81,82,83 \
-       ro.cdma.data_retry_config=default_randomization=2000,0,0,120000,180000,540000,960000 \
-       ro.cdma.otaspnumschema=SELC,3,00,07,80,87,88,99 \
-       net.cdma.pppd.authtype=require-chap \
-       net.cdma.pppd.user=user[SPACE]VerizonWireless \
-       net.cdma.datalinkinterface=/dev/ttyCDMA0 \
-       net.cdma.ppp.interface=ppp0 \
-       net.connectivity.type=CDMA1 \
-       net.interfaces.defaultroute=cdma \
-       mobiledata.interfaces=wlan0,ppp0
 
 # Inherit p1-common common device configuration.
 $(call inherit-product, device/samsung/p1-common/device_base.mk)
