@@ -37,5 +37,11 @@ BOARD_CUSTOM_BOOTIMG_MK := device/samsung/p1c/shbootimg.mk
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 262144000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 262144000
 
+# TWRP
+DEVICE_RESOLUTION := 1024x600
+TW_NO_REBOOT_BOOTLOADER := true
+RECOVERY_TOUCHSCREEN_SWAP_XY := true
+RECOVERY_TOUCHSCREEN_FLIP_X := true
+
 # Import the p1-common BoardConfigCommon.mk
 include device/samsung/p1-common/BoardConfigCommon.mk
