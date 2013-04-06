@@ -19,8 +19,3 @@ on fs
 
     mount_all /fstab.p1c
 
-on property:gsm.sim.state=NOT_READY
-    # this is a CDMA device with no SIM card, and this property must be set
-    # to READY for the data usage tracker to work properly
-    setprop gsm.sim.state READY
-
